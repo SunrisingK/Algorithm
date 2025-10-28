@@ -11,7 +11,7 @@ int naiveDijkstra(int n, int start, int end, vector<vector<int>>& grid) {
     minDist[start] = 0;
     // 遍历所有顶点, 遍历 minDist[] 数组
     for (int i = 1; i <= n; ++i) {
-        // Dijkstra算法第1步: 选择一个未被访问过且到起点最近的顶点
+        // Dijkstra算法第 1 步: 选择一个未被访问过且到起点最近的顶点
         int minVal = INT_MAX;
         int cur = -1;
         for (int v = 1; v <= n; ++v) {
@@ -27,7 +27,7 @@ int naiveDijkstra(int n, int start, int end, vector<vector<int>>& grid) {
         // Dijkstra算法第 2 步: 把找到的顶点标记为已访问
         visited[cur] = true;
 
-        // Dijkstra算法第3步: 更新起点到剩余未被访问过的顶点的距离
+        // Dijkstra算法第 3 步: 更新起点到剩余未被访问过的顶点的距离, 只更新与 cur 相连的
         for (int v = 1; v <= n; ++v) {
             if (!visited[v] && grid[cur][v] != INT_MAX && minDist[cur] + grid[cur][v] < minDist[v]) {
                 minDist [v] = minDist[cur] + grid[cur][v];
