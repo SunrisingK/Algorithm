@@ -30,7 +30,7 @@ int naiveDijkstra(int n, int start, int end, vector<vector<int>>& grid) {
         // Dijkstra算法第3步: 更新起点到剩余未被访问过的顶点的距离
         for (int v = 1; v <= n; ++v) {
             if (!visited[v] && grid[cur][v] != INT_MAX && minDist[cur] + grid[cur][v] < minDist[v]) {
-                minDist [v]  =minDist[cur] + grid[cur][v];
+                minDist [v] = minDist[cur] + grid[cur][v];
             }
         }
     }
