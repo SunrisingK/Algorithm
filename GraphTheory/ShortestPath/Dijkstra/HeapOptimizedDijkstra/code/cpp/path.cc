@@ -27,6 +27,7 @@ private:
 private:
     int n;
     bool pathExists;
+    bool computed;
 
     vector<int> minDist;
     vector<bool> visited;
@@ -37,14 +38,21 @@ private:
 
     priority_queue<pair<int, int>, vector<pair<int, int>>, mycompare> que;
 
+    int lastStart;
+    int lastEnd;
+
 public:
     HeapDijkstra(vector<list<Edge>> grid): grid(grid) {
         this->n = grid.size() - 1;
         this->pathExists = false;
+        this->computed = false;
     }
 
 private:
     void shortestPath(int start, int end) {
+        // 如果已经计算过相同的起点终点，直接返回
+        if (computed && lastStart == start && lastEnd == end) return;
+        
         minDist.resize(1 + n, INT_MAX);
         visited.resize(1 + n);
         parent.resize(1 + n, -1);
@@ -79,6 +87,9 @@ private:
             }
         }
         pathExists = minDist[end] != INT_MAX;
+        computed = true;
+        lastStart = start;
+        lastEnd = end;
     }
 
     // 重构路径的辅助函数
