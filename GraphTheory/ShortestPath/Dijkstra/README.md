@@ -1,3 +1,5 @@
+[题目链接](https://kamacoder.com/problempage.php?pid=1047)
+
 题目描述
 
 小明是一位科学家，他需要参加一场重要的国际科学大会，以展示自己的最新研究成果
