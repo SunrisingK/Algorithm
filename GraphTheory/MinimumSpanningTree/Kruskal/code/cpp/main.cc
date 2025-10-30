@@ -4,14 +4,14 @@
 using namespace std;
 
 // 并查集, 用于快速判断待生成的树中是否有环
-class UnionSet {
+class DisjointSet {
 private:
     static const int N = 1e5;   // 顶点数量的最大值
     int size;
     vector<int> count;          // 所在集合的元素数量
     vector<int> p;              // 集合根节点
 public:
-    UnionSet(int size = N) : size(size) {
+    DisjointSet(int size = N) : size(size) {
         p.resize(size + 1);
         count.resize(size + 1, 1);
         for (int i = 0; i < size; ++i) {
@@ -65,7 +65,7 @@ int main(int argc, char const* argv[]) {
     });
 
     // 初始化并查集(顶点编号从1开始)
-    UnionSet st(v);
+    DisjointSet st(v);
 
     int ans = 0;
     int count = 0;      // 统计加入到MST的边

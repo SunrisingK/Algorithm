@@ -30,12 +30,12 @@ public class Path {
         }
     }
     
-    static class UnionSet {
+    static class DisjointSet {
         private int size;
         private int[] p;        // 集合根节点
         private int[] count;    // 所在集合的元素数量
     
-        public UnionSet(int size) {
+        public DisjointSet(int size) {
             this.size = size;
             p = new int[size + 1];
             count = new int[size + 1];
@@ -84,7 +84,7 @@ public class Path {
     }
     
     static class KruskalMST {
-        private UnionSet st;
+        private DisjointSet st;
         
         private int v;
         private int sum;
@@ -95,7 +95,7 @@ public class Path {
         private List<Edge> mstEdges;
     
         public KruskalMST(int v, Edge[] edges) {
-            st = new UnionSet(v);
+            st = new DisjointSet(v);
             this.v = v;
             this.sum = 0;
             this.computed = false;

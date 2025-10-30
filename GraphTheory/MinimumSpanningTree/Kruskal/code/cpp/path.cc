@@ -5,14 +5,14 @@ using namespace std;
 
 /* Kruskal算法拓展: 打印出最小生成树, 也就是说打印出MST的所有边 */
 
-class UnionSet {
+class DisjointSet {
 private:
     static const int N = 1e5;   // 顶点数量的最大值
     int size;
     vector<int> p;              // 集合根节点
     vector<int> count;          // 所在集合的元素数量
 public:
-    UnionSet(int size = N) {
+    DisjointSet(int size = N) {
         this->size = size;
         p.resize(size + 1);
         for (int i = 0; i <= size; ++i) {
@@ -70,7 +70,7 @@ struct Edge {
 class KruskalMST {
 private:
     vector<Edge> edges;
-    UnionSet st;
+    DisjointSet st;
     
     int v;
     int sum;

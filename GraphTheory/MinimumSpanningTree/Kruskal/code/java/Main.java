@@ -17,11 +17,11 @@ class Edge {
     public int getVal() { return val; }
 }
 
-class UnionSet {
+class DisjointSet {
     private int[] p;
     private int[] count;
 
-    public UnionSet(int n) {
+    public DisjointSet(int n) {
         p = new int[n];
         count = new int[n];
         for (int i = 0; i < n; ++i) {
@@ -69,7 +69,7 @@ public class Main {
         Arrays.sort(edges, (e1, e2) -> Integer.compare(e1.getVal(), e2.getVal()));
 
         // 初始化并查集(顶点编号从1开始)
-        UnionSet st = new UnionSet(v + 1);
+        DisjointSet st = new DisjointSet(v + 1);
         int ans = 0;
         for (Edge edge: edges) {
             int a = edge.getA();
