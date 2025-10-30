@@ -3,7 +3,7 @@ package DoublePointer.VariableLengthSlidingWindow.NumLegalSubarray.JustLegal.Num
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution {
+class Solution2 {
     public int numSubarraysWithSum(int[] nums, int goal) {
         // 前缀和 + 哈希表写法
         // i 和 j 表示长度, i < j
@@ -32,7 +32,7 @@ class Solution {
 public class Optimal {
     public static void main(String[] args) {
         int[] nums = {1, 0, 1, 0, 1};
-        Solution s = new Solution();
+        Solution2 s = new Solution2();
         int goal = 2;
         System.out.println(s.numSubarraysWithSum(nums, goal));
     }

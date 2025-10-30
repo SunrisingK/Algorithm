@@ -50,7 +50,7 @@ public:
 
 private:
     void shortestPath(int start, int end) {
-        // 如果已经计算过相同的起点终点，直接返回
+        // 如果已经计算过相同的起点终点, 直接返回
         if (computed && lastStart == start && lastEnd == end) return;
         
         minDist.resize(1 + n, INT_MAX);

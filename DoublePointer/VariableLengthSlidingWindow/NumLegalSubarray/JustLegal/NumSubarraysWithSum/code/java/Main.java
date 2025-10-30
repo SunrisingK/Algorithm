@@ -1,6 +1,6 @@
 package DoublePointer.VariableLengthSlidingWindow.NumLegalSubarray.JustLegal.NumSubarraysWithSum.code.java;
 
-class Solution {
+class Solution1 {
     private int count(int[] nums, int k) {
         int ans = 0;
         int sum = 0;
@@ -29,7 +29,7 @@ class Solution {
 public class Main {
     public static void main(String[] args) {
         int[] nums = {1, 0, 1, 0, 1};
-        Solution s = new Solution();
+        Solution1 s = new Solution1();
         int goal = 2;
         System.out.println(s.numSubarraysWithSum(nums, goal));
     }

@@ -11,6 +11,9 @@ class NaiveDijkstra {
 private:
     int n;
     bool pathExists;
+    bool computed;
+    int lastStart;
+    int lastEnd;
     vector<int> parent;         // 父顶点数组可以作为路径数组
     vector<int> minDist;
     vector<bool> visited;
@@ -24,6 +27,9 @@ public:
 
 private:
     void shortestPath(int start, int end) {
+        // 如果已经计算过相同的起点终点, 直接返回
+        if (computed && lastStart == start && lastEnd == end) return;
+
         parent.resize(n + 1, -1);
         minDist.resize(n + 1, INT_MAX);
         visited.resize(n + 1);
@@ -59,6 +65,9 @@ private:
             }
         }
         pathExists = minDist[end] != INT_MAX;
+        computed = true;
+        lastStart = start;
+        lastEnd = end;
     }
 
     // 重构路径的辅助函数
