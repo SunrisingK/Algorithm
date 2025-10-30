@@ -1,4 +1,4 @@
-package DoublePointer.VariableLengthSlidingWindow.LegalSubarray.ShortLegal.NumSubarrayProductLessThanK.code.java;
+package DoublePointer.VariableLengthSlidingWindow.NumLegalSubarray.ShortLegal.NumSubarrayProductLessThanK.code.java;
 
 class Solution {
     public int numSubarrayProductLessThanK(int[] nums, int k) {

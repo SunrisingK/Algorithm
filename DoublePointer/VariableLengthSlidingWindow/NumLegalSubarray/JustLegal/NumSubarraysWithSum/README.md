@@ -1,6 +1,6 @@
 [题目链接](https://leetcode.cn/problems/binary-subarrays-with-sum/description/)
 
-给你一个二元数组 `nums` ，和一个整数 `goal` ，请你统计并返回有多少个和为 `goal` 的** 非空** 子数组。
+给你一个二元数组 `nums` ，和一个整数 `goal` ，请你统计并返回有多少个和为 `goal` 的非空子数组。
 
 **子数组** 是数组的一段连续部分。
 

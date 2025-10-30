@@ -1,4 +1,4 @@
-package DoublePointer.VariableLengthSlidingWindow.LegalSubarray.LongLegal.NumberOfSubstrings.code.java;
+package DoublePointer.VariableLengthSlidingWindow.NumLegalSubarray.LongLegal.NumberOfSubstrings.code.java;
 
 class Solution {
     private boolean check(int[] count) {
