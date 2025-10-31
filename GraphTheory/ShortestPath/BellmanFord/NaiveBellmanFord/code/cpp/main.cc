@@ -9,7 +9,7 @@ struct Edge {
     int val;
 };
 
-int bellmanford(int start, int end, int n, vector<Edge>& grid) {
+int naiveBellmanford(int start, int end, int n, vector<Edge>& grid) {
     vector<int> minDist(1 + n, INT_MAX);
 
     // BellmanFord算法里没有 visited[] 数组
@@ -52,7 +52,7 @@ int main(int argc, char const* argv[]) {
     int start = 1;
     int end = n; 
 
-    int shortestDist = bellmanford(start, end, n, grid);
+    int shortestDist = naiveBellmanford(start, end, n, grid);
     string s = (shortestDist == INT_MAX ? "unconnected" : to_string(shortestDist));
     cout << s;
 
