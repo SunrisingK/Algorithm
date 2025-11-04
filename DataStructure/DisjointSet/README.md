@@ -10,10 +10,11 @@
 class DisjointSet {
 public:
     DisjointSet(int n) {
+        p.resize(1 + n);
         for (int i = 1; i <= n; ++i) {
             p[i] = i;
         }
-        count.resize(1 + n,  1);
+        count.resize(1 + n, 1);
     }
 
     int find(int x) {
@@ -33,15 +34,15 @@ public:
         int px = find(x), py = find(y);
         if (px != py) {
             if (count[px] < count[py]) {
-                swap(px, py);
+                std::swap(px, py);
             }
             count[px] += count[py];
             p[py] = px;
         }
     }
 private:
-    vector<int> p;          // 节点所在集合的根节点
-    vector<int> count;      // 节点所在集合的元素数量
+    std::vector<int> p;          // 节点所在集合的根节点
+    std::vector<int> count;      // 节点所在集合的元素数量
 };
 ```
 
@@ -51,7 +52,6 @@ private:
 // Java实现并查集类
 class DisjointSet {
     public DisjointSet(int n) {
-        // 节点数量, 假设节点编号从 1 开始
         p = new int[1 + n];
         count = new int[1 + n];
         for (int i = 1; i <= n; ++i) {
@@ -85,7 +85,7 @@ class DisjointSet {
             p[py] = px;
         }
     }
-     
+
     private int[] p;        // 节点所在集合的根节点
     private int[] count;    // 节点所在集合的元素数量
 }
