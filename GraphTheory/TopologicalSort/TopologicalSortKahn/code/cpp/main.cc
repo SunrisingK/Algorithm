@@ -13,6 +13,7 @@ private:
     bool computed;
     queue<int> que;
     vector<int> sequence;   // 排序后的序列
+
 public:
     vector<int> inDegree;
 
@@ -21,6 +22,7 @@ public:
         this->hasCycle = false;
         this->computed = false;
     }
+    
 private:
     void topologicalSort(unordered_map<int, vector<int>>& grid) {
         // 多源BFS, 入度为 0 的顶点入队
@@ -62,7 +64,6 @@ public:
             cout << endl;
         }
     }
-
 };
 
 int main(int argc, char const* argv[]) {
