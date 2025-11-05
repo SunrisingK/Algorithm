@@ -10,7 +10,6 @@ import java.util.LinkedList;
 
 
 class TopologicalSortKahn {
-    public Map<Integer, List<Integer>> grid;
     public int[] InDegree;
 
     private int n;
@@ -22,14 +21,8 @@ class TopologicalSortKahn {
         this.n = n;
         this.InDegree = new int[n];  // 顶点编号 0~n-1，入度数组长度为n
         this.sequence = new LinkedList<>();
-        this.grid = new HashMap<>();
         this.computed = false;
         this.hasCycle = false;
-
-        // 为每个顶点初始化空的邻接表，避免get(u)返回null
-        for (int i = 0; i < n; i++) {
-            grid.put(i, new ArrayList<>());
-        }
     }
 
     private void topologicalSort(Map<Integer, List<Integer>> grid) {
@@ -57,13 +50,12 @@ class TopologicalSortKahn {
     }
 
     public void printTopologicalSortSequence(Map<Integer, List<Integer>> grid) {
-        if (!computed) {
-            topologicalSort(grid);
-        }
+        if (!computed) topologicalSort(grid);
 
         if (hasCycle) {
             System.out.println("图中有环, 不存在拓扑序列");
-        } else {
+        } 
+        else {
             for (int i = 0; i < sequence.size(); ++i) {
                 if (i > 0) System.out.print(" -> ");
                 System.out.print(sequence.get(i));
@@ -81,16 +73,21 @@ public class Main {
         int m = sc.nextInt();  // 边数
         
         TopologicalSortKahn kahn = new TopologicalSortKahn(n);
+        Map<Integer, List<Integer>> grid = new HashMap<>();
+        // 为每个顶点初始化空的邻接表，避免get(u)返回null
+        for (int i = 0; i < n; i++) {
+            grid.put(i, new ArrayList<>());
+        }
 
         while (m-- > 0) {
             int u = sc.nextInt();
             int v = sc.nextInt();
             kahn.InDegree[v]++;
-            kahn.grid.get(u).add(v);  // 此时grid.get(u)已初始化，不会为null
+            grid.get(u).add(v);  // 此时grid.get(u)已初始化，不会为null
         }
 
         // 调用打印方法，执行拓扑排序并输出结果
-        kahn.printTopologicalSortSequence(kahn.grid);
+        kahn.printTopologicalSortSequence(grid);
 
         sc.close();
     }
