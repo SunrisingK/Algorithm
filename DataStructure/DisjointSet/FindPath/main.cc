@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../../DisjointSet.h"
+#include "../DisjointSet.h"
 using namespace std;
 
 
