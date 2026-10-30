@@ -21,7 +21,7 @@ int naiveDijkstra(int n, int start, int end, vector<vector<int>>& grid) {
             }
         }
 
-        // 如果找不到可用的顶点，说明剩下的顶点都不可达
+        // 如果找不到可用的顶点, 说明剩下的顶点都不可达
         if (cur == -1) break;
 
         // Dijkstra算法第 2 步: 把找到的顶点标记为已访问
